@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://foo" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://foo" xmlns:intf="http://foo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://foo" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="year" type="xsd:string"/>
+   <element name="getYearTemperatureReturn" type="xsd:string"/>
+   <element name="yearAndMonth" type="xsd:string"/>
+   <element name="getMonthTemperatureReturn" type="xsd:string"/>
+   <element name="yearAndMonthAndDay" type="xsd:string"/>
+   <element name="getDayTemperatureReturn" type="xsd:string"/>
+   <element name="name" type="xsd:string"/>
+   <element name="sb" type="xsd:string"/>
+   <element name="helloReturn" type="xsd:string"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDayTemperatureRequest">
+
+      <wsdl:part element="impl:yearAndMonthAndDay" name="yearAndMonthAndDay"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMonthTemperatureRequest">
+
+      <wsdl:part element="impl:yearAndMonth" name="yearAndMonth"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="helloResponse">
+
+      <wsdl:part element="impl:helloReturn" name="helloReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="helloRequest">
+
+      <wsdl:part element="impl:name" name="name"/>
+
+      <wsdl:part element="impl:sb" name="sb"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMonthTemperatureResponse">
+
+      <wsdl:part element="impl:getMonthTemperatureReturn" name="getMonthTemperatureReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDayTemperatureResponse">
+
+      <wsdl:part element="impl:getDayTemperatureReturn" name="getDayTemperatureReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getYearTemperatureRequest">
+
+      <wsdl:part element="impl:year" name="year"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getYearTemperatureResponse">
+
+      <wsdl:part element="impl:getYearTemperatureReturn" name="getYearTemperatureReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="QueryServer">
+
+      <wsdl:operation name="getYearTemperature" parameterOrder="year">
+
+         <wsdl:input message="impl:getYearTemperatureRequest" name="getYearTemperatureRequest"/>
+
+         <wsdl:output message="impl:getYearTemperatureResponse" name="getYearTemperatureResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMonthTemperature" parameterOrder="yearAndMonth">
+
+         <wsdl:input message="impl:getMonthTemperatureRequest" name="getMonthTemperatureRequest"/>
+
+         <wsdl:output message="impl:getMonthTemperatureResponse" name="getMonthTemperatureResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDayTemperature" parameterOrder="yearAndMonthAndDay">
+
+         <wsdl:input message="impl:getDayTemperatureRequest" name="getDayTemperatureRequest"/>
+
+         <wsdl:output message="impl:getDayTemperatureResponse" name="getDayTemperatureResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="hello" parameterOrder="name sb">
+
+         <wsdl:input message="impl:helloRequest" name="helloRequest"/>
+
+         <wsdl:output message="impl:helloResponse" name="helloResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="QueryServerSoapBinding" type="impl:QueryServer">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getYearTemperature">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getYearTemperatureRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getYearTemperatureResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMonthTemperature">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMonthTemperatureRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMonthTemperatureResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDayTemperature">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDayTemperatureRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDayTemperatureResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="hello">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="helloRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="helloResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="QueryServerService">
+
+      <wsdl:port binding="impl:QueryServerSoapBinding" name="QueryServer">
+
+         <wsdlsoap:address location="http://localhost:8080//services/foo/QueryServer"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
