@@ -8,12 +8,11 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class QueryServer {
-  private String filePath = "E:\\xml\\";
+  private String filePath = "E:\\coding\\java\\XML\\xml\\";
   private SAXBuilder saxBuilder = new SAXBuilder();
   private static final String uri = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
 
   public String getYearTemperature(String year) throws Exception {
-    System.out.println(year);
     StringBuilder result = new StringBuilder();
     if (Integer.parseInt(year) >= 2009 && Integer.parseInt(year) <= 2018) {
       List<Element> rowList = saxBuilder.build(new File(filePath + year + ".xml")).
@@ -81,9 +80,5 @@ public class QueryServer {
       }
     }
     return result;
-  }
-
-  public String hello(String name, String sb) {
-    return name + "hello" + sb;
   }
 }

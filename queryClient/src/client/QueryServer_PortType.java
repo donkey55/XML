@@ -8,8 +8,7 @@
 package client;
 
 public interface QueryServer_PortType extends java.rmi.Remote {
-    public java.lang.String getYearTemperature(java.lang.String year) throws java.rmi.RemoteException;
     public java.lang.String getMonthTemperature(java.lang.String yearAndMonth) throws java.rmi.RemoteException;
     public java.lang.String getDayTemperature(java.lang.String yearAndMonthAndDay) throws java.rmi.RemoteException;
-    public java.lang.String hello(java.lang.String name, java.lang.String sb) throws java.rmi.RemoteException;
+    public java.lang.String getYearTemperature(java.lang.String year) throws java.rmi.RemoteException;
 }
